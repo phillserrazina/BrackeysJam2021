@@ -25,7 +25,9 @@ namespace Lucerna.Movement.ThirdPerson
 
         private void Update() {
             GetInput();
-            UpdateAnimator();
+
+            if (animator != null)
+                UpdateAnimator();
         }
 
         private void FixedUpdate() => Move();
