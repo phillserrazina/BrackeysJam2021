@@ -29,6 +29,8 @@ namespace BrackeysJam.Core.Entities
 
         private Vector3 currentPoint = Vector3.zero;
 
+        private float movementTimer = 5f;
+
         // EXECUTION FUNCTIONS
         private void Awake() {
             rb = GetComponent<Rigidbody>();
@@ -58,10 +60,18 @@ namespace BrackeysJam.Core.Entities
         }
 
         private void RandomMovement() {
-            if (currentPoint == null) currentPoint = BoundariesManager.Instance.GetRandomPoint();
+            if (currentPoint == null) 
+                currentPoint = GetNewPoint();
+
+            if (movementTimer > 0f) {
+                movementTimer -= Time.deltaTime;
+            }
+            else {
+                currentPoint = GetNewPoint();
+            }
 
             if (Vector3.Distance(transform.position, currentPoint) < 2f) {
-                currentPoint = BoundariesManager.Instance.GetRandomPoint();
+                currentPoint = GetNewPoint();
             }
 
             transform.LookAt(currentPoint);
@@ -69,5 +79,12 @@ namespace BrackeysJam.Core.Entities
 
             rb.velocity = transform.forward * speed * 0.5f * Time.fixedDeltaTime;
         }
+
+        private Vector3 GetNewPoint() {
+            movementTimer = Random.Range(3f, 5f);
+            return BoundariesManager.Instance.GetRandomPoint();
+        }
     }
+
+
 }

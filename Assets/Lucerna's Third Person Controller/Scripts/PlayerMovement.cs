@@ -6,8 +6,12 @@ namespace Lucerna.Movement.ThirdPerson
     {
         // VARIABLES
         [SerializeField] private float movementSpeed = 5f;
+        [SerializeField] private float jumpForce = 5f;
         [SerializeField] private string horizontalAxis = "Horizontal";
         [SerializeField] private string verticalAxis = "Vertical";
+
+        [Space(10)]
+        [SerializeField] private LayerMask groundLayer = new LayerMask();
 
         [Header("Animator Variables")]
         [SerializeField] private Animator animator = null;
@@ -19,6 +23,8 @@ namespace Lucerna.Movement.ThirdPerson
         private float verticalDirection = 0f;
 
         private Rigidbody rb = null;
+
+        private bool grounded = false;
 
         // EXECUTION FUNCTIONS
         private void Start() => rb = GetComponent<Rigidbody>(); 
@@ -32,10 +38,25 @@ namespace Lucerna.Movement.ThirdPerson
 
         private void FixedUpdate() => Move();
 
+        private void OnCollisionStay(Collision other) {
+            grounded = true;
+        }
+
+        private void OnCollisionExit(Collision other) {
+            grounded = false;
+        }
+
         // METHODS
         private void GetInput() {
             horizontalDirection = Input.GetAxis(horizontalAxis);
             verticalDirection = Input.GetAxis(verticalAxis);
+
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                if (grounded) {
+                    rb.AddForce(Vector3.up * jumpForce, ForceMode.Force);
+                    grounded = false;
+                }
+            }
         }
 
         private void UpdateAnimator() {
