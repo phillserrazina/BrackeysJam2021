@@ -23,11 +23,17 @@ public class BossProjectile : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
+        if (other.CompareTag("Wall")) {
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+            return;
+        }
+
         var player = other.GetComponent<PlayerStats>();
 
         if (player == null) return;
 
-        player.Damage(10f);
+        player.Damage(20f);
         Destroy(gameObject);
     }
 

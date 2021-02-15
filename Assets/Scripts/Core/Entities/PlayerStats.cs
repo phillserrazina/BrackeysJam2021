@@ -20,7 +20,9 @@ public class PlayerStats : MonoBehaviour
         currentHealth -= val;
 
         if (currentHealth <= 0) {
-            Destroy(gameObject);
+            Time.timeScale = 0f;
+
+            BossEndScreenUI.Instance.Show("You have lost!");
         }
     }
 }
