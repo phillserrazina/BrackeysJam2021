@@ -4016,7 +4016,7 @@ Transform:
   - {fileID: 8833264686041907702}
   - {fileID: 2134545566}
   m_Father: {fileID: 913760490}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &428984452
 GameObject:
@@ -9634,7 +9634,6 @@ Transform:
   m_Children:
   - {fileID: 972736784}
   - {fileID: 635366508}
-  - {fileID: 1978179572}
   - {fileID: 414402578}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -18949,12 +18948,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978179571}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 913760490}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1978179573
 MonoBehaviour:
@@ -18968,7 +18967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c4737e052ea7864e81bacebd901c4f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountToSpawn: 50
+  amountToSpawn: 100
   recruitGroupObject: {fileID: 668577491}
   recruitablePrefabs:
   - {fileID: 872821825255993528, guid: a344ce08e0f96164093c7933b42f713a, type: 3}
@@ -18976,7 +18975,7 @@ MonoBehaviour:
   - {fileID: 5493138050931789732, guid: d9926644fe4f9634fbb9fef63a7c5c90, type: 3}
   spawnRates:
   - 0.8
-  - 0.2
+  - 0.3
   - 0.2
 --- !u!1 &1983145212
 GameObject:
