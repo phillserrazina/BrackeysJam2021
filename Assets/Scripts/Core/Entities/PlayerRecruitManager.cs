@@ -26,13 +26,6 @@ namespace BrackeysJam.Core.Entities
            } 
         }
 
-        // EXECUTION FUNCTIONS
-        private void Update() {
-            if (Input.GetKeyDown(KeyCode.E)) {
-                SaveRecruits();
-            }
-        }
-
         // METHODS
         public void Recruit(Recruitable recruitable) {
             if (recruits.Contains(recruitable)) return;
@@ -51,8 +44,6 @@ namespace BrackeysJam.Core.Entities
             foreach (var type in RecruitTypes) {
                 PlayerPrefs.SetInt($"{type.ToString()}", NumberOfRecruitsOfType(type));
             }
-
-            SceneManager.LoadScene(2);
         }
     }
 }
