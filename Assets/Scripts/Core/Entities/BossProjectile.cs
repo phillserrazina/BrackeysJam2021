@@ -6,6 +6,7 @@ public class BossProjectile : MonoBehaviour
 {
     // VARIABLES
     [SerializeField] private float speed = 50f;
+    [SerializeField] private ParticleSystem deathFX = null;
 
     private Transform currentTarget;
 
@@ -24,7 +25,7 @@ public class BossProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Wall")) {
-            Destroy(gameObject);
+            SelfDestroy();
             Destroy(other.gameObject);
             return;
         }
@@ -34,11 +35,18 @@ public class BossProjectile : MonoBehaviour
         if (player == null) return;
 
         player.Damage(20f);
-        Destroy(gameObject);
+        SelfDestroy();
     }
 
     // METHODS
     public void Initialize(Transform target) {
         currentTarget = target;
+    }
+
+    private void SelfDestroy(float timer=0) {
+        var obj = Instantiate(deathFX, transform.position, Quaternion.identity);
+        Destroy(obj, 3f);
+
+        Destroy(gameObject, timer);
     }
 }

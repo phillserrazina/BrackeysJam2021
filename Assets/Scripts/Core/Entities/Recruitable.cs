@@ -23,6 +23,9 @@ namespace BrackeysJam.Core.Entities
         [SerializeField] private float distanceToStop = 1f;
 
         [SerializeField] private RecruitableTypes recruitType = RecruitableTypes.Basic;
+
+        [Space(10)]
+        [SerializeField] private ParticleSystem deathFX = null;
         public RecruitableTypes Type => recruitType;
 
         private Rigidbody rb;
@@ -74,7 +77,8 @@ namespace BrackeysJam.Core.Entities
 
         private void OnCollisionEnter(Collision other) {
             if (other.transform == currentTarget) {
-                Destroy(gameObject);
+                
+
                 other.gameObject.GetComponent<BossAI>().Damage(30f);
             }
         }
@@ -106,12 +110,12 @@ namespace BrackeysJam.Core.Entities
             else if (recruitType == RecruitableTypes.Defense)
             {
                 currentTarget = target;
-                Destroy(gameObject, 3f);
+                SelfDestroy(3f);
             }
 
             else 
             {
-                Destroy(gameObject);
+                SelfDestroy();
             }
         }
 
@@ -150,6 +154,11 @@ namespace BrackeysJam.Core.Entities
             return BoundariesManager.Instance.GetRandomPoint();
         }
     
-        
+        private void SelfDestroy(float timer=0) {
+            var obj = Instantiate(deathFX, transform.position, Quaternion.identity);
+            Destroy(obj, 3f);
+
+            Destroy(gameObject, timer);
+        }
     }
 }
