@@ -24,10 +24,9 @@ namespace BrackeysJam.Core.UI
         private void Update() {
             recruitsTitle.text = $"Recruits (x{player.NumberOfRecruits})";
 
-            var recruitTypes = Enum.GetValues(typeof(RecruitableTypes)).Cast<RecruitableTypes>();
             string recruitsString = "";
 
-            foreach (var type in recruitTypes) {
+            foreach (var type in player.RecruitTypes) {
                 var recruitsOfType = player.NumberOfRecruitsOfType(type);
                 recruitsString += $"{type.ToString()} x{recruitsOfType}\n";   
             }

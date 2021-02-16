@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
+using UnityEngine.SceneManagement;
 
 namespace BrackeysJam.Core.Entities
 {
@@ -18,6 +20,19 @@ namespace BrackeysJam.Core.Entities
             return (found == null) ? 0 : found.Length;
         }
 
+        public IEnumerable<RecruitableTypes> RecruitTypes {
+           get {
+               return Enum.GetValues(typeof(RecruitableTypes)).Cast<RecruitableTypes>();
+           } 
+        }
+
+        // EXECUTION FUNCTIONS
+        private void Update() {
+            if (Input.GetKeyDown(KeyCode.E)) {
+                SaveRecruits();
+            }
+        }
+
         // METHODS
         public void Recruit(Recruitable recruitable) {
             if (recruits.Contains(recruitable)) return;
@@ -26,6 +41,14 @@ namespace BrackeysJam.Core.Entities
             recruitable.TurnToRecruit(this);
 
             Debug.Log("Recruited!");
+        }
+
+        public void SaveRecruits() {
+            foreach (var type in RecruitTypes) {
+                PlayerPrefs.SetInt($"{type.ToString()}", NumberOfRecruitsOfType(type));
+            }
+
+            SceneManager.LoadScene(1);
         }
     }
 }
