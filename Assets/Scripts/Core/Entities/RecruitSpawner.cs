@@ -20,6 +20,7 @@ public class RecruitSpawner : MonoBehaviour
             for (int j = 0; j < recruitablePrefabs.Length; j++) {
                 if (val < spawnRates[j]) {
                     var spawnPos = BoundariesManager.Instance.GetRandomPoint();
+                    spawnPos += Vector3.up * 0.4f;
                     var spawned = Instantiate(recruitablePrefabs[j], spawnPos, Quaternion.identity);
                     spawned.transform.SetParent(recruitGroupObject);
                 }
