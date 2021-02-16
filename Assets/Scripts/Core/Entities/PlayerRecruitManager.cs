@@ -43,12 +43,16 @@ namespace BrackeysJam.Core.Entities
             Debug.Log("Recruited!");
         }
 
+        public void Remove(Recruitable r) {
+            recruits.Remove(r);
+        }
+
         public void SaveRecruits() {
             foreach (var type in RecruitTypes) {
                 PlayerPrefs.SetInt($"{type.ToString()}", NumberOfRecruitsOfType(type));
             }
 
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
     }
 }

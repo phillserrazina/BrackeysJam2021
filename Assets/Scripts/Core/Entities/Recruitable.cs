@@ -77,9 +77,12 @@ namespace BrackeysJam.Core.Entities
 
         private void OnCollisionEnter(Collision other) {
             if (other.transform == currentTarget) {
-                
-
                 other.gameObject.GetComponent<BossAI>().Damage(30f);
+
+                var fx = Instantiate(deathFX, transform.position, Quaternion.identity);
+                Destroy(fx, 2f);
+                
+                Destroy(gameObject);
             }
         }
 

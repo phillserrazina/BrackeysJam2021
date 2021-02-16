@@ -47,16 +47,25 @@ namespace BrackeysJam.Core.Entities
 
         private void Update() {
             if (Input.GetKeyDown(KeyCode.Alpha1)) {
-                if (queues[0].Count > 0)
-                    queues[0].Dequeue().Use(boss);
+                if (queues[0].Count > 0) {
+                    var chosen = queues[0].Dequeue();
+                    chosen.Use(boss);
+                    player.Remove(chosen);
+                }
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2)) {
-                if (queues[1].Count > 0)
-                    queues[1].Dequeue().Use(boss);
+                if (queues[1].Count > 0) {
+                    var chosen = queues[1].Dequeue();
+                    chosen.Use(boss);
+                    player.Remove(chosen);
+                }
             }
             else if (Input.GetKeyDown(KeyCode.Alpha3)) {
-                if (queues[2].Count > 0)
-                    queues[2].Dequeue().Use(boss);
+                if (queues[2].Count > 0) {
+                    var chosen = queues[2].Dequeue();
+                    chosen.Use(boss);
+                    player.Remove(chosen);
+                }
             }
         }
     }
