@@ -39,7 +39,15 @@ namespace Lucerna.Movement.ThirdPerson
         private void FixedUpdate() => Move();
 
         private void OnCollisionStay(Collision other) {
-            grounded = true;
+            RaycastHit hit;
+            Ray landingRay = new Ray(transform.position, Vector3.down);
+
+            Debug.DrawRay(transform.position, Vector3.down);
+
+            if (Physics.Raycast(landingRay, out hit, 1f))
+            {
+                grounded = true;
+            }
         }
 
         private void OnCollisionExit(Collision other) {

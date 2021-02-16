@@ -62,6 +62,7 @@ MonoBehaviour:
   speed: 250
   distanceToStop: 3
   recruitType: 0
+  deathFX: {fileID: 4855472982183481596, guid: 887c49dee73f4bf41ba42b1642d1f65f, type: 3}
 --- !u!54 &-5745785229509206301
 Rigidbody:
   m_ObjectHideFlags: 0
