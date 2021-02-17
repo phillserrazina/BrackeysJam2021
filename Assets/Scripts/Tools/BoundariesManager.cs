@@ -22,7 +22,7 @@ public class BoundariesManager : MonoBehaviour
 
         return new Vector3 (
             Random.Range(bounds.min.x, bounds.max.x),
-            0f,
+            3f,
             Random.Range(bounds.min.z, bounds.max.z)
         );
     }

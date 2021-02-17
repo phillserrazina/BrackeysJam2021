@@ -10,6 +10,7 @@ namespace BrackeysJam.Core.Entities
     {
         // VARIABLES
         private PlayerRecruitManager leader;
+        public PlayerRecruitManager Leader { get { return leader; } }
 
         private float DistanceFromLeader { 
             get { 
@@ -37,6 +38,8 @@ namespace BrackeysJam.Core.Entities
         private Transform currentTarget = null;
 
         private bool roaming = true;
+
+        public bool CanMove = true;
 
         // EXECUTION FUNCTIONS
         private void Awake() {
@@ -66,12 +69,20 @@ namespace BrackeysJam.Core.Entities
             }
             
             else if (leader != null) {
-                FollowLeader();
-                return;
+                transform.LookAt(leader.transform);
+
+                if (CanMove) {
+                    FollowLeader();
+                    return;
+                }
+                else {
+                    rb.velocity = new Vector3(0f, rb.velocity.y, 0f);
+                    return;
+                }
             }
 
 
-            if (roaming)
+            else if (roaming)
                 RandomMovement();
         }
 
@@ -122,12 +133,15 @@ namespace BrackeysJam.Core.Entities
             }
         }
 
-        private void FollowLeader() {
-            transform.LookAt(leader.transform);
-            transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y, 0f);
+        private void FollowLeader() {            
+            float newY = rb.velocity.y;
 
             if (DistanceFromLeader > distanceToStop) {
                 rb.velocity = transform.forward * speed * Time.fixedDeltaTime;
+                rb.velocity = new Vector3(rb.velocity.x, newY, rb.velocity.z); 
+            }
+            else {
+                rb.velocity = new Vector3(0f, newY, 0f);
             }
         }
 
@@ -149,12 +163,23 @@ namespace BrackeysJam.Core.Entities
             transform.LookAt(currentPoint);
             transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y, 0f);
 
+            float newY = rb.velocity.y;
             rb.velocity = transform.forward * speed * 0.5f * Time.fixedDeltaTime;
+            rb.velocity = new Vector3(rb.velocity.x, newY, rb.velocity.z);
         }
 
         private Vector3 GetNewPoint() {
             movementTimer = Random.Range(3f, 5f);
-            return BoundariesManager.Instance.GetRandomPoint();
+            //return BoundariesManager.Instance.GetRandomPoint();
+        
+            var newPoint = new Vector3(
+                transform.position.x + Random.Range(-3f, 3f),
+                transform.position.y + Random.Range(-3f, 3f),
+                transform.position.z + Random.Range(-3f, 3f)
+            );
+
+            newPoint.y = Terrain.activeTerrain.SampleHeight(newPoint);
+            return newPoint;
         }
     
         private void SelfDestroy(float timer=0) {
@@ -162,6 +187,11 @@ namespace BrackeysJam.Core.Entities
             Destroy(obj, 3f);
 
             Destroy(gameObject, timer);
+        }
+
+        private void OnDestroy() {
+            leader.Remove(this);
+            RecruitsGroupMovementManager.Instance.Remove(this);
         }
     }
 }

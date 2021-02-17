@@ -39,8 +39,12 @@ namespace BrackeysJam.Core.Entities
                     var spawnedObject = Instantiate(toSpawn, spawnPosition.position, spawnPosition.rotation);
                     spawnedObject.transform.SetParent(transform);
 
+                    spawnedObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
+
                     player.Recruit(spawnedObject);
                     queues[i].Enqueue(spawnedObject);
+
+                    RecruitsGroupMovementManager.Instance.Add(spawnedObject);
                 }
             }
         }
@@ -49,24 +53,27 @@ namespace BrackeysJam.Core.Entities
             if (Input.GetKeyDown(KeyCode.Alpha1)) {
                 if (queues[0].Count > 0) {
                     var chosen = queues[0].Dequeue();
-                    chosen.Use(boss);
-                    player.Remove(chosen);
+                    Use(chosen);
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2)) {
                 if (queues[1].Count > 0) {
                     var chosen = queues[1].Dequeue();
-                    chosen.Use(boss);
-                    player.Remove(chosen);
+                    Use(chosen);
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Alpha3)) {
                 if (queues[2].Count > 0) {
                     var chosen = queues[2].Dequeue();
-                    chosen.Use(boss);
-                    player.Remove(chosen);
+                    Use(chosen);
                 }
             }
+        }
+
+        private void Use(Recruitable chosen) {
+            chosen.Use(boss);
+            player.Remove(chosen);
+            RecruitsGroupMovementManager.Instance.Remove(chosen);
         }
     }
 }

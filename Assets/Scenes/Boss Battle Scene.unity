@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -808,7 +808,7 @@ GameObject:
   - component: {fileID: 492860410}
   m_Layer: 8
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1053,6 +1053,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barImage: {fileID: 1084660401}
+  barColors:
+  - {r: 0.76470596, g: 0.13333334, b: 0.13333334, a: 1}
+  - {r: 1, g: 0.410209, b: 0, a: 1}
+  - {r: 1, g: 0.85065913, b: 0, a: 1}
+  - {r: 0.93500304, g: 1, b: 0, a: 1}
 --- !u!1 &574268792
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,6 +1068,7 @@ GameObject:
   m_Component:
   - component: {fileID: 574268793}
   - component: {fileID: 574268794}
+  - component: {fileID: 574268795}
   m_Layer: 0
   m_Name: Recruits
   m_TagString: Untagged
@@ -1103,6 +1109,18 @@ MonoBehaviour:
   - {fileID: 872821825255993528, guid: a344ce08e0f96164093c7933b42f713a, type: 3}
   - {fileID: 8690531827040003667, guid: 2a37e20d784d4444fa79715332082ea4, type: 3}
   - {fileID: 5493138050931789732, guid: d9926644fe4f9634fbb9fef63a7c5c90, type: 3}
+--- !u!114 &574268795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574268792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c71287b08627304f83230d0ae2cdb73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &611611662
 GameObject:
   m_ObjectHideFlags: 0
@@ -3884,7 +3902,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2127544644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.29, z: 7.51}
+  m_LocalPosition: {x: 0, y: 1.5, z: 7.51}
   m_LocalScale: {x: 2.7793, y: 2.5735486, z: 2.7793}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3905,6 +3923,8 @@ MonoBehaviour:
   projectile: {fileID: 256822325632717652, guid: 3ea1e1efa9fc56d44aaabbe119325742,
     type: 3}
   maxHealth: 100
+  slamSpeed: 2
+  slamHeight: 10
 --- !u!1 &2147026166
 GameObject:
   m_ObjectHideFlags: 0
