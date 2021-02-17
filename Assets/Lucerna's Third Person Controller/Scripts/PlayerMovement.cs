@@ -40,9 +40,9 @@ namespace Lucerna.Movement.ThirdPerson
 
         private void OnCollisionStay(Collision other) {
             RaycastHit hit;
-            Ray landingRay = new Ray(transform.position, Vector3.down);
+            Ray landingRay = new Ray(transform.position, Vector3.down * 0.2f);
 
-            Debug.DrawRay(transform.position, Vector3.down);
+            Debug.DrawRay(transform.position, Vector3.down * 0.2f);
 
             if (Physics.Raycast(landingRay, out hit, 1f))
             {
