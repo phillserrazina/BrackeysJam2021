@@ -86,9 +86,9 @@ namespace BrackeysJam.Core.Entities
                 RandomMovement();
         }
 
-        private void OnCollisionEnter(Collision other) {
+        private void OnTriggerEnter(Collider other) {
             if (other.transform == currentTarget) {
-                other.gameObject.GetComponent<BossAI>().Damage(30f);
+                other.GetComponent<BossAI>().Damage(30f);
 
                 var fx = Instantiate(deathFX, transform.position, Quaternion.identity);
                 Destroy(fx, 2f);

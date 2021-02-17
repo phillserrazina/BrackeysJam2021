@@ -34,7 +34,7 @@ public class BossProjectile : MonoBehaviour
 
         if (player == null) return;
 
-        player.Damage(20f);
+        player.Damage(5f);
         SelfDestroy();
     }
 

@@ -25,8 +25,12 @@ namespace BrackeysJam.Core.Entities
         [SerializeField] private float slamSpeed = 5f;
         [SerializeField] private float slamHeight = 1f;
 
+        [SerializeField] private GameObject onSlamFX = null;
+
         private float slamAnimator;
 
+        [SerializeField] private BossLaser laser = null;
+        private bool usingLaser = false;
 
         // EXECUTION FUNCTIONS
         private void Awake() {
@@ -36,7 +40,7 @@ namespace BrackeysJam.Core.Entities
         private void Start() {
             currentHealth = maxHealth;
         
-            Invoke("Attack", Random.Range(2f, 5f));
+            Invoke("Attack", Random.Range(2f, 4f));
         }
 
         private void Update() {
@@ -48,7 +52,13 @@ namespace BrackeysJam.Core.Entities
                 BossPhase = newPhase;
             }
 
-            transform.LookAt(player.transform);
+            laser.gameObject.SetActive(usingLaser);
+
+            if (usingLaser) {
+                transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);
+            }
+            else
+                transform.LookAt(player.transform);
         }
 
         private void FixedUpdate() {
@@ -67,8 +77,8 @@ namespace BrackeysJam.Core.Entities
             }
         }
 
-        private void OnCollisionEnter(Collision other) {
-            if (other.gameObject.CompareTag("Ground") || other.gameObject == player.gameObject) {
+        private void OnTriggerEnter(Collider other) {
+            if (other.CompareTag("Ground")) {
                 stopSlamming();
             }
         }
@@ -85,6 +95,7 @@ namespace BrackeysJam.Core.Entities
         }
 
         private void Attack() {
+            /*
             if (BossPhase == 0)
             {
                 throwProjectile();
@@ -98,8 +109,26 @@ namespace BrackeysJam.Core.Entities
                     slamAttack();
                 }
             }
+            else if (BossPhase == 2)
+            {
+                float val = Random.value;
 
-            Invoke("Attack", Random.Range(3f, 5f));
+                if (val < 0.3f) {
+                    throwProjectile();
+                }
+                else if (val < 0.6f) {
+                    slamAttack();
+                }
+                else {
+                    laserAttack();
+                }
+            }
+            */
+
+            laserAttack();
+
+            if (!usingLaser)
+                Invoke("Attack", Random.Range(3f, 5f));
         }
 
         private int getCurrentPhase
@@ -119,20 +148,37 @@ namespace BrackeysJam.Core.Entities
             Destroy(proj.gameObject, 2f);
         }
 
+        private void laserAttack() {
+            usingLaser = true;
+
+            var laserStartPos = player.transform.position + new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f));
+
+            laser.transform.LookAt(laserStartPos);
+
+            Invoke("stopLaser", 5f);
+        }
+
+        private void stopLaser() {
+            usingLaser = false;
+            Invoke("Attack", Random.Range(3f, 5f));
+        }
+
         private void slamAttack() {
             slamStartPos = transform.position;
             slamingPlayer = true;
 
-            slamPos = player.transform.position;
+            slamPos = player.transform.position + Vector3.up * 3f;
         }
 
         private void stopSlamming() {
             slamingPlayer = false;
             slamAnimator = 0f;
 
-            var newPos = transform.position;
-            newPos.y = 1.5f;
-            transform.position = newPos;
+            var fxPos = transform.position;
+            fxPos.y = 0.1f;
+
+            var ps = Instantiate(onSlamFX, fxPos, onSlamFX.transform.rotation);
+            Destroy(ps, 1f);
         }
     }
 }
