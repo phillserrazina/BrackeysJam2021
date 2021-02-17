@@ -33,11 +33,16 @@ namespace BrackeysJam.Core.Entities
             recruits.Add(recruitable);
             recruitable.TurnToRecruit(this);
 
+            RecruitsGroupMovementManager.Instance.Add(recruitable);
+
             Debug.Log("Recruited!");
         }
 
         public void Remove(Recruitable r) {
+            if (!recruits.Contains(r)) return;
+
             recruits.Remove(r);
+            RecruitsGroupMovementManager.Instance.Remove(r);
         }
 
         public void SaveRecruits() {
