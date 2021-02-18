@@ -36,10 +36,11 @@ namespace BrackeysJam.Core.Entities
         [SerializeField] private BossAttackSO[] attacks = null;
 
         [SerializeField] private Animator animator = null;
+        [SerializeField] private Animator barAnimator = null;
 
         private bool attacking {
             get {
-                return animator.GetInteger("Attack Index") != 0;
+                return animator.GetInteger("Attack") != 0;
             }
         }
 
@@ -99,6 +100,8 @@ namespace BrackeysJam.Core.Entities
 
         // METHODS
         public void Damage(float val, bool hasArmorPiercing) {
+            barAnimator.SetTrigger("Hit");
+
             if (currentArmor > currentHealth && !hasArmorPiercing)
                 currentArmor -= val;
             else {
