@@ -55,10 +55,15 @@ namespace BrackeysJam.Core.Entities
             laser.gameObject.SetActive(usingLaser);
 
             if (usingLaser) {
-                transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);
+                var newRot = new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);
+                transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, newRot, 3f * Time.deltaTime);
             }
-            else
-                transform.LookAt(player.transform);
+            else {
+                var targetRotation = Quaternion.LookRotation(player.transform.position - transform.position);
+       
+                // Smoothly rotate towards the target point.
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 5f * Time.deltaTime);
+            }
         }
 
         private void FixedUpdate() {
@@ -95,7 +100,6 @@ namespace BrackeysJam.Core.Entities
         }
 
         private void Attack() {
-            /*
             if (BossPhase == 0)
             {
                 throwProjectile();
@@ -123,7 +127,6 @@ namespace BrackeysJam.Core.Entities
                     laserAttack();
                 }
             }
-            */
 
             laserAttack();
 

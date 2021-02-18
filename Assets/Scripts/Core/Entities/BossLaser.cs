@@ -6,6 +6,7 @@ using BrackeysJam.Core.Entities;
 public class BossLaser : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
+    [SerializeField] private float damage = 10f;
     private PlayerStats player;
 
     private void Awake() {
@@ -23,7 +24,7 @@ public class BossLaser : MonoBehaviour
         var player = other.GetComponent<PlayerStats>();
 
         if (player != null) {
-            player.Damage(Time.deltaTime);
+            player.Damage(Time.deltaTime * damage);
         }
     }
 }
