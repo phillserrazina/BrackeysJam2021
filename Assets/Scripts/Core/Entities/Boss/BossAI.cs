@@ -36,10 +36,17 @@ namespace BrackeysJam.Core.Entities
         [SerializeField] private BossAttackSO[] attacks = null;
 
         [SerializeField] private Animator animator = null;
+        [SerializeField] private Animator barAnimator = null;
 
         private bool attacking {
             get {
-                return animator.GetInteger("Attack Index") != 0;
+                return animator.GetInteger("Attack") != 0;
+            }
+        }
+
+        private bool usingLaser {
+            get {
+                return animator.GetInteger("Attack") == 2;
             }
         }
 
@@ -62,6 +69,8 @@ namespace BrackeysJam.Core.Entities
             int newPhase = getCurrentPhase;
 
             if (BossPhase != newPhase) {
+                animator.SetTrigger("Evolve");
+
                 BossPhase = newPhase;
 
                 if (BossPhase == 3) {
@@ -69,10 +78,16 @@ namespace BrackeysJam.Core.Entities
                 }
             }
 
-            var targetRotation = Quaternion.LookRotation(Player.transform.position - transform.position);
+            if (usingLaser) {
+                var newRot = new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);
+                transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, newRot, 3f * Time.deltaTime);
+            }
+            else {
+                var targetRotation = Quaternion.LookRotation(Player.transform.position - transform.position);
        
-            // Smoothly rotate towards the target point.
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 5f * Time.deltaTime);
+                // Smoothly rotate towards the target point.
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 5f * Time.deltaTime);
+            }
         }
 
         private void FixedUpdate() {
@@ -99,6 +114,8 @@ namespace BrackeysJam.Core.Entities
 
         // METHODS
         public void Damage(float val, bool hasArmorPiercing) {
+            barAnimator.SetTrigger("Hit");
+
             if (currentArmor > currentHealth && !hasArmorPiercing)
                 currentArmor -= val;
             else {
