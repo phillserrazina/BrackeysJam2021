@@ -12,10 +12,13 @@ namespace BrackeysJam.Core.Entities
 
         [SerializeField] private float maxHealth = 100f;
         private float currentHealth = 0f;
-
         public float HealthPercentage => currentHealth / maxHealth;
 
-        private PlayerRecruitManager player;
+        [SerializeField] private float maxArmor = 100f;
+        private float currentArmor = 0f;
+        public float ArmorPercentage => currentArmor / maxArmor;
+
+        public PlayerRecruitManager Player { get; private set; }
 
         public int BossPhase { get; private set; }
 
@@ -30,16 +33,19 @@ namespace BrackeysJam.Core.Entities
 
         private float slamAnimator;
 
-        [SerializeField] private BossLaser laser = null;
-        private bool usingLaser = false;
-
         [SerializeField] private BossAttackSO[] attacks = null;
 
         [SerializeField] private Animator animator = null;
 
+        private bool attacking {
+            get {
+                return animator.GetInteger("Attack Index") != 0;
+            }
+        }
+
         // EXECUTION FUNCTIONS
         private void Awake() {
-            player = FindObjectOfType<PlayerRecruitManager>();
+            Player = FindObjectOfType<PlayerRecruitManager>();
         }
 
         private void Start() {
@@ -49,26 +55,24 @@ namespace BrackeysJam.Core.Entities
         }
 
         private void Update() {
+            if (!attacking) {
+                Invoke("Attack", Random.Range(BossPhase > 1 ? 1f : 3f, BossPhase > 1 ? 3f : 5f));
+            }
+
             int newPhase = getCurrentPhase;
 
             if (BossPhase != newPhase) {
-                // TODO: Play animation
-                
                 BossPhase = newPhase;
+
+                if (BossPhase == 3) {
+                    currentArmor = maxArmor;
+                }
             }
 
-            laser.gameObject.SetActive(usingLaser);
-
-            if (usingLaser) {
-                var newRot = new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);
-                transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, newRot, 3f * Time.deltaTime);
-            }
-            else {
-                var targetRotation = Quaternion.LookRotation(player.transform.position - transform.position);
+            var targetRotation = Quaternion.LookRotation(Player.transform.position - transform.position);
        
-                // Smoothly rotate towards the target point.
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 5f * Time.deltaTime);
-            }
+            // Smoothly rotate towards the target point.
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 5f * Time.deltaTime);
         }
 
         private void FixedUpdate() {
@@ -94,8 +98,13 @@ namespace BrackeysJam.Core.Entities
         }
 
         // METHODS
-        public void Damage(float val) {
-            currentHealth -= val;
+        public void Damage(float val, bool hasArmorPiercing) {
+            if (currentArmor > currentHealth && !hasArmorPiercing)
+                currentArmor -= val;
+            else {
+                currentHealth -= val / 2;
+                currentArmor -= val / 2;
+            }
 
             if (currentHealth <= 0) {
                 Time.timeScale = 0f;
@@ -115,7 +124,7 @@ namespace BrackeysJam.Core.Entities
                     break;
                 
                 case 1:
-                    if (randVal > 0.5f) PlayAttack("Projectile");
+                    if (randVal < 0.5f) PlayAttack("Projectile");
                     else PlayAttack("Slam");
                     break;
                 
@@ -127,16 +136,16 @@ namespace BrackeysJam.Core.Entities
                     break;
                 
                 case 3:
+                    if (randVal < 0.3f) PlayAttack("Projectile");
+                    else if (randVal < 0.6f) PlayAttack("Slam");
+                    else PlayAttack("Laser");
+                    
                     break;
                 
                 default:
                     Debug.LogError("BossAI::Attack() --- Invalid State.");
                     break;
-            }
-
-
-            if (!usingLaser)
-                Invoke("Attack", Random.Range(3f, 5f));
+            }                
         }
 
         private int getCurrentPhase
@@ -149,18 +158,11 @@ namespace BrackeysJam.Core.Entities
             }
         }
 
-        private void throwProjectile() {
-            var proj = Instantiate(projectile, transform.position, transform.rotation);
-            proj.Initialize(player.transform);
-        
-            Destroy(proj.gameObject, 2f);
-        }
-
-        private void slamAttack() {
+        public void SlamAttack() {
             slamStartPos = transform.position;
             slamingPlayer = true;
 
-            slamPos = player.transform.position + Vector3.up * 3f;
+            slamPos = Player.transform.position + Vector3.up * 3f;
         }
 
         private void stopSlamming() {

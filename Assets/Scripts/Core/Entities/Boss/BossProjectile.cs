@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BrackeysJam.Core.Entities;
 
 public class BossProjectile : MonoBehaviour
 {
@@ -26,9 +27,11 @@ public class BossProjectile : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.CompareTag("Wall")) {
+        var recruit = other.GetComponent<Recruitable>();
+        if (recruit != null) {
             SelfDestroy();
-            Destroy(other.gameObject);
+            if (Random.value > 0.8f)
+                recruit.SelfDestroy();
             return;
         }
 

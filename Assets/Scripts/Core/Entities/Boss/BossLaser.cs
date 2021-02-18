@@ -10,19 +10,25 @@ public class BossLaser : MonoBehaviour
     [SerializeField] private float damage = 10f;
     private PlayerStats player;
 
+    private float killTimer = 0f;
+
     // EXECUTION FUNCTIONS
     private void OnEnable() {
         if (player == null) {
             player = FindObjectOfType<PlayerStats>();
         }
 
-        var laserStartPos = player.transform.position + new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f));
+        var laserStartPos = player.transform.position + new Vector3(Random.Range(-5f, 5f), 0f, Random.Range(-5f, 5f));
 
         transform.LookAt(laserStartPos);
     }
 
     private void Update() {
-        var targetRotation = Quaternion.LookRotation(player.transform.position - transform.position);
+        if (killTimer > 0f) {
+            killTimer -= Time.deltaTime;   
+        }
+
+        var targetRotation = Quaternion.LookRotation((player.transform.position) - transform.position);
        
         // Smoothly rotate towards the target point.
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, speed * Time.deltaTime);
@@ -33,6 +39,15 @@ public class BossLaser : MonoBehaviour
 
         if (player != null) {
             player.Damage(Time.deltaTime * damage);
+        }
+
+        if (killTimer > 0f) return;
+
+        killTimer = 0.2f;
+        var recruit = other.GetComponent<Recruitable>();
+
+        if (recruit != null) {
+            recruit.SelfDestroy();
         }
     }
 }
