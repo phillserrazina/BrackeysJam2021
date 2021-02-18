@@ -14,7 +14,9 @@ public class BossProjectile : MonoBehaviour
 
     // EXECUTION FUNCTIONS
     private void Awake() {
-        rb = GetComponent<Rigidbody>();    
+        rb = GetComponent<Rigidbody>();
+
+        Destroy(gameObject, 2f);   
     }
 
     void FixedUpdate()

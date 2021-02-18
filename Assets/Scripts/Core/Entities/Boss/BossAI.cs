@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 namespace BrackeysJam.Core.Entities
 {
@@ -31,6 +32,10 @@ namespace BrackeysJam.Core.Entities
 
         [SerializeField] private BossLaser laser = null;
         private bool usingLaser = false;
+
+        [SerializeField] private BossAttackSO[] attacks = null;
+
+        [SerializeField] private Animator animator = null;
 
         // EXECUTION FUNCTIONS
         private void Awake() {
@@ -99,36 +104,36 @@ namespace BrackeysJam.Core.Entities
             }
         }
 
-        private void Attack() {
-            if (BossPhase == 0)
-            {
-                throwProjectile();
-            }
-            else if (BossPhase == 1) 
-            {
-                if (Random.value > 0.5f) {
-                    throwProjectile();
-                }
-                else {
-                    slamAttack();
-                }
-            }
-            else if (BossPhase == 2)
-            {
-                float val = Random.value;
+        private void Attack() 
+        {
+            float randVal = Random.value;
 
-                if (val < 0.3f) {
-                    throwProjectile();
-                }
-                else if (val < 0.6f) {
-                    slamAttack();
-                }
-                else {
-                    laserAttack();
-                }
+            switch (BossPhase)
+            {
+                case 0:
+                    PlayAttack("Projectile");
+                    break;
+                
+                case 1:
+                    if (randVal > 0.5f) PlayAttack("Projectile");
+                    else PlayAttack("Slam");
+                    break;
+                
+                case 2:
+                    if (randVal < 0.3f) PlayAttack("Projectile");
+                    else if (randVal < 0.6f) PlayAttack("Slam");
+                    else PlayAttack("Laser");
+                    
+                    break;
+                
+                case 3:
+                    break;
+                
+                default:
+                    Debug.LogError("BossAI::Attack() --- Invalid State.");
+                    break;
             }
 
-            laserAttack();
 
             if (!usingLaser)
                 Invoke("Attack", Random.Range(3f, 5f));
@@ -151,21 +156,6 @@ namespace BrackeysJam.Core.Entities
             Destroy(proj.gameObject, 2f);
         }
 
-        private void laserAttack() {
-            usingLaser = true;
-
-            var laserStartPos = player.transform.position + new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f));
-
-            laser.transform.LookAt(laserStartPos);
-
-            Invoke("stopLaser", 5f);
-        }
-
-        private void stopLaser() {
-            usingLaser = false;
-            Invoke("Attack", Random.Range(3f, 5f));
-        }
-
         private void slamAttack() {
             slamStartPos = transform.position;
             slamingPlayer = true;
@@ -182,6 +172,12 @@ namespace BrackeysJam.Core.Entities
 
             var ps = Instantiate(onSlamFX, fxPos, onSlamFX.transform.rotation);
             Destroy(ps, 1f);
+        }
+
+        private void PlayAttack(string attackName) {
+            var attack = attacks.Where(a => a.Name == attackName).ToArray()[0];
+
+            animator.SetInteger("Attack", attack.AnimationIndex);
         }
     }
 }

@@ -5,12 +5,20 @@ using BrackeysJam.Core.Entities;
 
 public class BossLaser : MonoBehaviour
 {
+    // VARIABLES
     [SerializeField] private float speed = 5f;
     [SerializeField] private float damage = 10f;
     private PlayerStats player;
 
-    private void Awake() {
-        player = FindObjectOfType<PlayerStats>();
+    // EXECUTION FUNCTIONS
+    private void OnEnable() {
+        if (player == null) {
+            player = FindObjectOfType<PlayerStats>();
+        }
+
+        var laserStartPos = player.transform.position + new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f));
+
+        transform.LookAt(laserStartPos);
     }
 
     private void Update() {

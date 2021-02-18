@@ -88,7 +88,7 @@ namespace BrackeysJam.Core.Entities
 
         private void OnTriggerEnter(Collider other) {
             if (other.transform == currentTarget) {
-                other.GetComponent<BossAI>().Damage(30f);
+                other.GetComponent<BossAI>().Damage(2f);
 
                 var fx = Instantiate(deathFX, transform.position, Quaternion.identity);
                 Destroy(fx, 2f);
@@ -190,7 +190,7 @@ namespace BrackeysJam.Core.Entities
         }
 
         private void OnDestroy() {
-            leader.Remove(this);
+            if (leader != null) leader.Remove(this);
             RecruitsGroupMovementManager.Instance.Remove(this);
         }
     }
