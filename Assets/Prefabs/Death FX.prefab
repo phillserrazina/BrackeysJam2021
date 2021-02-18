@@ -4768,7 +4768,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -4825,3 +4825,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a2801719dbdc784aa93d2288ef52a1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delay: 2

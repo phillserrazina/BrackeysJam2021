@@ -41,6 +41,8 @@ namespace BrackeysJam.Core.Entities
 
         public bool CanMove = true;
 
+        private Vector3 currentDir;
+
         // EXECUTION FUNCTIONS
         private void Awake() {
             rb = GetComponent<Rigidbody>();
@@ -55,7 +57,12 @@ namespace BrackeysJam.Core.Entities
                     // Smoothly rotate towards the target point.
                     transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, speed * Time.deltaTime);
                 
-                    rb.velocity = transform.forward * speed * 5f * Time.fixedDeltaTime;
+                    rb.velocity = transform.forward * speed * 5f * Time.fixedDeltaTime;          
+                }
+
+                else if (recruitType == RecruitableTypes.Basic)
+                {
+                    rb.velocity = currentDir * speed * 5f * Time.fixedDeltaTime;
                 }
 
                 else if (recruitType == RecruitableTypes.Defense) 
@@ -63,7 +70,7 @@ namespace BrackeysJam.Core.Entities
                     Debug.Log("Positioning! " + leader.name);
 
                     transform.LookAt(currentTarget);
-                    transform.position = leader.transform.position + leader.transform.forward;
+                    transform.position = leader.transform.position + Vector3.up + leader.transform.forward;
                     transform.localScale = new Vector3(5, 5, 1);
                 }
             }
@@ -86,14 +93,34 @@ namespace BrackeysJam.Core.Entities
                 RandomMovement();
         }
 
-        private void OnCollisionEnter(Collision other) {
+        private void OnTriggerEnter(Collider other) {
             if (other.transform == currentTarget) {
-                other.gameObject.GetComponent<BossAI>().Damage(30f);
+                bool isAttack = Type == RecruitableTypes.Attack;
+                float damage = isAttack ? 8f : 4f;
+                other.GetComponent<BossAI>().Damage(damage, isAttack);
 
                 var fx = Instantiate(deathFX, transform.position, Quaternion.identity);
                 Destroy(fx, 2f);
                 
                 Destroy(gameObject);
+            }
+        }
+
+        private void OnCollisionEnter(Collision other) {
+
+            if (Type == RecruitableTypes.Defense) return;
+
+            if (other.gameObject.CompareTag("Ground"))
+            {
+                if (currentTarget == null) return;
+
+                if (Random.value > 0.5f) {
+                    SelfDestroy();
+                }
+
+                currentTarget = null;
+                leader.Recruit(this);
+                PlayerBattleRecruitManager.Instance.Requeue(this);
             }
         }
 
@@ -106,19 +133,19 @@ namespace BrackeysJam.Core.Entities
         {
             roaming = false;
 
-            if (recruitType == RecruitableTypes.Attack) 
+            if (recruitType == RecruitableTypes.Basic) 
+            {
+                transform.position = transform.position + Vector3.up;
+                rb.constraints = RigidbodyConstraints.FreezeRotation;
+                currentDir = (CameraAimUtil.Instance.CurrentPoint - transform.position).normalized;
+                currentTarget = target;
+            }
+
+            else if (recruitType == RecruitableTypes.Attack) 
             {
                 transform.position = transform.position + Vector3.up;
                 rb.constraints = RigidbodyConstraints.FreezeRotation;
                 currentTarget = target;
-
-                /*
-                var dir = (currentTarget.position - transform.position).normalized;
-                dir *= speed * 6f;
-                dir += Vector3.up * 100f;
-                */
-
-                //rb.AddForce(dir);
             }
 
             else if (recruitType == RecruitableTypes.Defense)
@@ -182,7 +209,7 @@ namespace BrackeysJam.Core.Entities
             return newPoint;
         }
     
-        private void SelfDestroy(float timer=0) {
+        public void SelfDestroy(float timer=0) {
             var obj = Instantiate(deathFX, transform.position, Quaternion.identity);
             Destroy(obj, 3f);
 
@@ -190,7 +217,7 @@ namespace BrackeysJam.Core.Entities
         }
 
         private void OnDestroy() {
-            leader.Remove(this);
+            if (leader != null) leader.Remove(this);
             RecruitsGroupMovementManager.Instance.Remove(this);
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BrackeysJam.Core.Entities;
 
 public class BossProjectile : MonoBehaviour
 {
@@ -14,7 +15,9 @@ public class BossProjectile : MonoBehaviour
 
     // EXECUTION FUNCTIONS
     private void Awake() {
-        rb = GetComponent<Rigidbody>();    
+        rb = GetComponent<Rigidbody>();
+
+        Destroy(gameObject, 2f);   
     }
 
     void FixedUpdate()
@@ -24,9 +27,11 @@ public class BossProjectile : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.CompareTag("Wall")) {
+        var recruit = other.GetComponent<Recruitable>();
+        if (recruit != null) {
             SelfDestroy();
-            Destroy(other.gameObject);
+            if (Random.value > 0.8f)
+                recruit.SelfDestroy();
             return;
         }
 
@@ -34,7 +39,7 @@ public class BossProjectile : MonoBehaviour
 
         if (player == null) return;
 
-        player.Damage(20f);
+        player.Damage(5f);
         SelfDestroy();
     }
 

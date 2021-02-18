@@ -8,6 +8,7 @@ public class BossHealthBarUI : MonoBehaviour
 {
     // VARIABLES
     [SerializeField] private Image barImage = null;
+    [SerializeField] private Image armorBarImage = null;
     [SerializeField] private Color[] barColors = null;
     
     private BossAI boss;
@@ -20,5 +21,7 @@ public class BossHealthBarUI : MonoBehaviour
     private void Update() {
         barImage.color = barColors[boss.BossPhase];
         barImage.fillAmount = boss.HealthPercentage;
+
+        armorBarImage.fillAmount = boss.ArmorPercentage;
     }
 }

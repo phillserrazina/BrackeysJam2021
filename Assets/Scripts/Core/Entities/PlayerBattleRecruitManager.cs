@@ -22,7 +22,18 @@ namespace BrackeysJam.Core.Entities
 
         private List<Queue<Recruitable>> queues = new List<Queue<Recruitable>>();
 
+        private float[] cooldowns;
+
+        private float[] attackCooldowns = { 0.2f, 1f, 3f };
+
+        public static PlayerBattleRecruitManager Instance { get; private set; }
+
         // EXECUTION FUNCTIONS
+        private void Awake() {
+            Instance = this;
+            cooldowns = new float[3];
+        }
+
         private void Start()
         {
             var recruitArrays = RecruitTypes.ToArray();
@@ -50,30 +61,62 @@ namespace BrackeysJam.Core.Entities
         }
 
         private void Update() {
-            if (Input.GetKeyDown(KeyCode.Alpha1)) {
-                if (queues[0].Count > 0) {
-                    var chosen = queues[0].Dequeue();
-                    Use(chosen);
+            for (int i = 0; i < cooldowns.Length; i++) {
+                if (cooldowns[i] > 0f) {
+                    cooldowns[i] -= Time.deltaTime;
                 }
+            }
+
+            int index = -1;
+
+            if (Input.GetKeyDown(KeyCode.Alpha1)) {
+                index = 0;
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2)) {
-                if (queues[1].Count > 0) {
-                    var chosen = queues[1].Dequeue();
-                    Use(chosen);
-                }
+                index = 1;
             }
             else if (Input.GetKeyDown(KeyCode.Alpha3)) {
-                if (queues[2].Count > 0) {
-                    var chosen = queues[2].Dequeue();
-                    Use(chosen);
+                index = 2;
+            }
+
+            if (index == -1 || cooldowns[index] > 0f) return;
+
+            if (queues[index].Count > 0) {
+                Recruitable chosen = queues[index].Dequeue();
+
+                while (chosen == null) {
+                    if (queues[index].Count <= 0) break;
+                    
+                    chosen = queues[index].Dequeue();
                 }
+
+                Use(chosen);
+                
+                cooldowns[index] = attackCooldowns[index];
+                index = -1;
             }
         }
 
         private void Use(Recruitable chosen) {
+            if (chosen == null) {
+                player.Remove(chosen);
+                RecruitsGroupMovementManager.Instance.Remove(chosen);
+                return;
+            }
+
             chosen.Use(boss);
             player.Remove(chosen);
             RecruitsGroupMovementManager.Instance.Remove(chosen);
+        }
+
+        public void Requeue(Recruitable r) {
+            var recruitArrays = RecruitTypes.ToArray();
+            for (int i = 0; i < recruitArrays.Length; i++) 
+            {
+                if (r.Type == recruitArrays[i]) {
+                    queues[i].Enqueue(r);
+                }
+            }
         }
     }
 }
