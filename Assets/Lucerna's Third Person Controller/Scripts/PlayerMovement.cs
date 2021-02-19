@@ -27,9 +27,13 @@ namespace Lucerna.Movement.ThirdPerson
         private bool grounded = false;
 
         private float jumpTimer = 1f;
-
+        
         // EXECUTION FUNCTIONS
-        private void Start() => rb = GetComponent<Rigidbody>(); 
+        private void Start()
+        {
+            rb = GetComponent<Rigidbody>();
+            Invoke("StartGrounded", 1f);
+        }
 
         private void Update() {
             if (jumpTimer > 0f) {
@@ -44,6 +48,14 @@ namespace Lucerna.Movement.ThirdPerson
 
         private void FixedUpdate() => Move();
 
+        private void StartGrounded()
+        {
+            if (grounded != true)
+            {
+                grounded = true;
+            }
+
+        }
         private void OnCollisionStay(Collision other) {
             RaycastHit hit;
             Ray landingRay = new Ray(transform.position, Vector3.down * 0.2f);
