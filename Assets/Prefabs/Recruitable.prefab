@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1198907777497628506}
   - component: {fileID: -5745785229509206301}
   - component: {fileID: 2099241004292622611}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Recruitable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17a2cc17797ec534aa4563fe6ac52b3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 250
+  roam: 1
+  speed: 200
   distanceToStop: 3
   recruitType: 0
   deathFX: {fileID: 4855472982183481596, guid: 887c49dee73f4bf41ba42b1642d1f65f, type: 3}

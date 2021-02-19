@@ -47,6 +47,10 @@ public class BossLaser : MonoBehaviour
         var recruit = other.GetComponent<Recruitable>();
 
         if (recruit != null) {
+            if (recruit.CompareTag("Wall")) {
+                GetComponentInParent<Animator>().SetTrigger("Hit");
+                gameObject.SetActive(false);
+            }
             recruit.SelfDestroy();
         }
     }

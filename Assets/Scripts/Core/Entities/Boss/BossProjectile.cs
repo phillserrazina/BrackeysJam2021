@@ -7,6 +7,8 @@ public class BossProjectile : MonoBehaviour
 {
     // VARIABLES
     [SerializeField] private float speed = 50f;
+    [SerializeField] private float rotSpeed = 1f;
+    [SerializeField] private float damage = 20f;
     [SerializeField] private ParticleSystem deathFX = null;
 
     private Transform currentTarget;
@@ -22,16 +24,26 @@ public class BossProjectile : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.LookAt(currentTarget);
+        var targetRotation = Quaternion.LookRotation((currentTarget.transform.position + Vector3.up * 0.5f) - transform.position);
+       
+        // Smoothly rotate towards the target point.
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotSpeed * Time.deltaTime);
+
         rb.velocity = transform.forward * speed * Time.fixedDeltaTime;
     }
 
     private void OnTriggerEnter(Collider other) {
+        if (other.CompareTag("Ground")) {
+            SelfDestroy();
+            return;
+        }
+
         var recruit = other.GetComponent<Recruitable>();
         if (recruit != null) {
-            SelfDestroy();
-            if (Random.value > 0.8f)
+            if (recruit.CompareTag("Wall")) {
+                SelfDestroy();
                 recruit.SelfDestroy();
+            }
             return;
         }
 
@@ -39,7 +51,7 @@ public class BossProjectile : MonoBehaviour
 
         if (player == null) return;
 
-        player.Damage(5f);
+        player.Damage(damage);
         SelfDestroy();
     }
 
