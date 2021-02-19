@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 4c8b24a6f8397434f9f78a02689fa711,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -17262,7 +17262,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 5.100006, y: -5.1000366}
+  m_AnchoredPosition: {x: 5.0999756, y: -5.1000366}
   m_SizeDelta: {x: 150, y: 200}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1254182569
@@ -26012,8 +26012,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6922793697723135513, guid: 472cbc442ad538742b253fec97c1c3d0, type: 3}
-  - {fileID: 4874126678125670354, guid: 472cbc442ad538742b253fec97c1c3d0, type: 3}
+  - {fileID: 2100000, guid: 56a89c37b95ea29449e1e58d5fcdba8b, type: 2}
+  - {fileID: 2100000, guid: 00ce710ff419b7a45b06574b0da63d06, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
