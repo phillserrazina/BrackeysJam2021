@@ -34,8 +34,6 @@ namespace BrackeysJam.Core.Entities
             recruitable.TurnToRecruit(this);
 
             RecruitsGroupMovementManager.Instance.Add(recruitable);
-
-            Debug.Log("Recruited!");
         }
 
         public void Remove(Recruitable r) {

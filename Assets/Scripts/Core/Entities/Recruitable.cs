@@ -27,6 +27,7 @@ namespace BrackeysJam.Core.Entities
         [SerializeField] private RecruitableTypes recruitType = RecruitableTypes.Basic;
 
         [Space(10)]
+        [SerializeField] private Animator animator = null;
         [SerializeField] private ParticleSystem deathFX = null;
         [SerializeField] private ParticleSystem onCatchFX = null;
         public RecruitableTypes Type => recruitType;
@@ -48,6 +49,13 @@ namespace BrackeysJam.Core.Entities
         // EXECUTION FUNCTIONS
         private void Awake() {
             rb = GetComponent<Rigidbody>();
+        }
+
+        private void Update() {
+            var animVel = rb.velocity;
+            animVel.y = 0f;
+            animator.SetBool("Moving", animVel.magnitude > 0.5f);
+            animator.SetBool("Thrown", currentTarget != null);
         }
 
         private void FixedUpdate() {
@@ -125,6 +133,9 @@ namespace BrackeysJam.Core.Entities
         // METHODS
         public void TurnToRecruit(PlayerRecruitManager leader) {
             this.leader = leader;
+
+            animator.SetTrigger("Catch");
+
             var catchFX = Instantiate(onCatchFX, transform.position, onCatchFX.transform.rotation);
             Destroy(catchFX, 2f);
         }

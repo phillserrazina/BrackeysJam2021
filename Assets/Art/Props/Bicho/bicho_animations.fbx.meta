@@ -2,7 +2,19 @@ fileFormatVersion: 2
 guid: 72c8ac23e95278c4091d88e4d521d2e4
 ModelImporter:
   serializedVersion: 19301
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 6176237042287245821
+    second: Armature|Catch
+  - first:
+      74: -8945691123924629249
+    second: Armature|Idle
+  - first:
+      74: -3138685564169339637
+    second: 'Armature|Throw '
+  - first:
+      74: 8349542763059015795
+    second: Armature|Walk
   externalObjects: {}
   materials:
     materialImportMode: 1
