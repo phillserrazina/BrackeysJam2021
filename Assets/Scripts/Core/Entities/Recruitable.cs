@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BrackeysJam.Core.Entities
 {
-    public enum RecruitableTypes { Basic, Attack, Defense }
+    public enum RecruitableTypes { Basic, Attack, Defense, SpecialArmorPen }
 
     public class Recruitable : MonoBehaviour
     {
@@ -20,6 +20,7 @@ namespace BrackeysJam.Core.Entities
             }
         }
 
+        [SerializeField] private bool roam = false;
         [SerializeField] private float speed = 2f;
         [SerializeField] private float distanceToStop = 1f;
 
@@ -50,7 +51,7 @@ namespace BrackeysJam.Core.Entities
 
         private void FixedUpdate() {
             if (currentTarget != null) {
-                if (recruitType == RecruitableTypes.Attack)
+                if (recruitType == RecruitableTypes.Attack || recruitType == RecruitableTypes.SpecialArmorPen)
                 {
                     var targetRotation = Quaternion.LookRotation(currentTarget.transform.position - transform.position);
        
@@ -67,8 +68,6 @@ namespace BrackeysJam.Core.Entities
 
                 else if (recruitType == RecruitableTypes.Defense) 
                 {
-                    Debug.Log("Positioning! " + leader.name);
-
                     transform.LookAt(currentTarget);
                     transform.position = leader.transform.position + Vector3.up + leader.transform.forward;
                     transform.localScale = new Vector3(5, 5, 1);
@@ -89,15 +88,13 @@ namespace BrackeysJam.Core.Entities
             }
 
 
-            else if (roaming)
+            else if (roaming && roam)
                 RandomMovement();
         }
 
         private void OnTriggerEnter(Collider other) {
             if (other.transform == currentTarget) {
-                bool isAttack = Type == RecruitableTypes.Attack;
-                float damage = isAttack ? 8f : 4f;
-                other.GetComponent<BossAI>().Damage(damage, isAttack);
+                other.GetComponent<BossAI>().Damage(Type);
 
                 var fx = Instantiate(deathFX, transform.position, Quaternion.identity);
                 Destroy(fx, 2f);
@@ -151,7 +148,14 @@ namespace BrackeysJam.Core.Entities
             else if (recruitType == RecruitableTypes.Defense)
             {
                 currentTarget = target;
+                gameObject.tag = "Wall";
                 SelfDestroy(3f);
+            }
+
+            else if (recruitType == RecruitableTypes.SpecialArmorPen) {
+                transform.position = transform.position + Vector3.up;
+                rb.constraints = RigidbodyConstraints.FreezeRotation;
+                currentTarget = target;
             }
 
             else 

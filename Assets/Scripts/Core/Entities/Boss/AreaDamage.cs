@@ -5,13 +5,14 @@ using BrackeysJam.Core.Entities;
 
 public class AreaDamage : MonoBehaviour
 {
+    [SerializeField] private float damage = 40f;
+
     private void OnTriggerEnter(Collider other) {
         var playerStats = other.GetComponent<PlayerStats>();
+        Debug.Log(other.gameObject.name);
 
         if (playerStats != null) {
-            Debug.Log("Hit");
-
-            playerStats.Damage(20f);
+            playerStats.Damage(damage);
 
             var dir = playerStats.transform.position - transform.position;
             dir.y = 0f;

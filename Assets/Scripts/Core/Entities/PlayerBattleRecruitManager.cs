@@ -24,14 +24,14 @@ namespace BrackeysJam.Core.Entities
 
         private float[] cooldowns;
 
-        private float[] attackCooldowns = { 0.2f, 1f, 3f };
+        private float[] attackCooldowns = { 0.2f, 1f, 3f, 5f };
 
         public static PlayerBattleRecruitManager Instance { get; private set; }
 
         // EXECUTION FUNCTIONS
         private void Awake() {
             Instance = this;
-            cooldowns = new float[3];
+            cooldowns = new float[attackCooldowns.Length];
         }
 
         private void Start()
@@ -77,6 +77,9 @@ namespace BrackeysJam.Core.Entities
             }
             else if (Input.GetKeyDown(KeyCode.Alpha3)) {
                 index = 2;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha4)) {
+                index = 3;
             }
 
             if (index == -1 || cooldowns[index] > 0f) return;

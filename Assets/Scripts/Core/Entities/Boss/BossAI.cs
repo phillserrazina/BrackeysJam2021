@@ -50,6 +50,12 @@ namespace BrackeysJam.Core.Entities
             }
         }
 
+        private bool evolving {
+            get {
+                return animator.GetCurrentAnimatorStateInfo(0).IsName("Evolve");
+            }
+        }
+
         // EXECUTION FUNCTIONS
         private void Awake() {
             Player = FindObjectOfType<PlayerRecruitManager>();
@@ -113,14 +119,28 @@ namespace BrackeysJam.Core.Entities
         }
 
         // METHODS
-        public void Damage(float val, bool hasArmorPiercing) {
+        public void Damage(RecruitableTypes type) {
+            if (evolving) return;
+
             barAnimator.SetTrigger("Hit");
 
-            if (currentArmor > currentHealth && !hasArmorPiercing)
-                currentArmor -= val;
+            float damage = type == RecruitableTypes.Basic ? 2f : 6f;
+
+            if (currentArmor > currentHealth) {
+
+                if (type == RecruitableTypes.Basic) {
+                    currentArmor -= damage;
+                }
+                else if (type == RecruitableTypes.Attack) {
+                    currentArmor -= damage;
+                    currentHealth -= damage / 2;
+                }
+                else if (type == RecruitableTypes.SpecialArmorPen) {
+                    currentArmor -= damage * 8f;
+                }
+            }
             else {
-                currentHealth -= val / 2;
-                currentArmor -= val / 2;
+                currentHealth -= damage;
             }
 
             if (currentHealth <= 0) {

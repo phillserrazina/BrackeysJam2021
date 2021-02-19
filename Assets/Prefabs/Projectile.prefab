@@ -93,7 +93,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &9068981752630434274
 Rigidbody:
@@ -124,4 +124,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1000
+  rotSpeed: 3
+  damage: 10
   deathFX: {fileID: 4855472982183481596, guid: 887c49dee73f4bf41ba42b1642d1f65f, type: 3}

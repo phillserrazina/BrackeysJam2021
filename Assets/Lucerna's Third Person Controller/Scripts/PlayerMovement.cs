@@ -26,10 +26,16 @@ namespace Lucerna.Movement.ThirdPerson
 
         private bool grounded = false;
 
+        private float jumpTimer = 1f;
+
         // EXECUTION FUNCTIONS
         private void Start() => rb = GetComponent<Rigidbody>(); 
 
         private void Update() {
+            if (jumpTimer > 0f) {
+                jumpTimer -= Time.deltaTime;
+            }
+
             GetInput();
 
             if (animator != null)
@@ -50,9 +56,9 @@ namespace Lucerna.Movement.ThirdPerson
             }
         }
 
-        private void OnCollisionExit(Collision other) {
-            grounded = false;
-        }
+        //private void OnCollisionExit(Collision other) {
+        //    grounded = false;
+        //}
 
         // METHODS
         private void GetInput() {
@@ -60,9 +66,10 @@ namespace Lucerna.Movement.ThirdPerson
             verticalDirection = Input.GetAxis(verticalAxis);
 
             if (Input.GetKeyDown(KeyCode.Space)) {
-                if (grounded) {
+                if (grounded && jumpTimer <= 0f) {
                     rb.AddForce(Vector3.up * jumpForce, ForceMode.Force);
                     grounded = false;
+                    jumpTimer = 1f;
                 }
             }
         }
