@@ -28,6 +28,7 @@ namespace BrackeysJam.Core.Entities
 
         [Space(10)]
         [SerializeField] private ParticleSystem deathFX = null;
+        [SerializeField] private ParticleSystem onCatchFX = null;
         public RecruitableTypes Type => recruitType;
 
         private Rigidbody rb;
@@ -124,6 +125,8 @@ namespace BrackeysJam.Core.Entities
         // METHODS
         public void TurnToRecruit(PlayerRecruitManager leader) {
             this.leader = leader;
+            var catchFX = Instantiate(onCatchFX, transform.position, onCatchFX.transform.rotation);
+            Destroy(catchFX, 2f);
         }
 
         public void Use(Transform target) 
