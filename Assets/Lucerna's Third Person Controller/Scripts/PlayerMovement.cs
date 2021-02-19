@@ -70,6 +70,7 @@ namespace Lucerna.Movement.ThirdPerson
         private void UpdateAnimator() {
             animator.SetFloat(horizontalParameter, horizontalDirection);
             animator.SetFloat(verticalParameter, verticalDirection);
+	    animator.SetBool("Grounded", grounded);
         }
 
         private void Move() {
