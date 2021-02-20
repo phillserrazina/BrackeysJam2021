@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using BrackeysJam.Core.Entities;
-using UnityEngine.SceneManagement;
+using Lucerna.Utils;
 
 public class GameManager : MonoBehaviour
 {
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
 
         if (CurrentTime <= 0 || Input.GetKeyDown(KeyCode.E)) {
             player.SaveRecruits();
-            SceneManager.LoadScene(2);
+            SceneLoader.instance.LoadSceneAsync("Boss Battle Scene");
         }
     }
 
@@ -62,6 +62,6 @@ public class GameManager : MonoBehaviour
 
     public void Quit() {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(0);
+        SceneLoader.instance.LoadSceneAsync("Main Menu");
     }
 }

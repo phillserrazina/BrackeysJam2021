@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using Lucerna.Utils;
 
 public class BossEndScreenUI : MonoBehaviour
 {
@@ -27,7 +27,7 @@ public class BossEndScreenUI : MonoBehaviour
     }
 
     public void Restart() {
-        SceneManager.LoadScene(1);
+        SceneLoader.instance.LoadSceneAsync("Recruitment Scene");
         Time.timeScale = 1f;
     }
 }

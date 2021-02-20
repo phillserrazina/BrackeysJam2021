@@ -1,12 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using Lucerna.Utils;
 
 public class MainMenuManager : MonoBehaviour
 {
-
     public void GoToScene(string sceneName) {
-        SceneManager.LoadScene(sceneName);
+        SceneLoader.instance.LoadSceneAsync(sceneName);
     }
 }
