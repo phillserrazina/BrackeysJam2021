@@ -18,9 +18,11 @@ public class BossLaser : MonoBehaviour
             player = FindObjectOfType<PlayerStats>();
         }
 
+        
         var laserStartPos = player.transform.position + new Vector3(Random.Range(-5f, 5f), 0f, Random.Range(-5f, 5f));
 
         transform.LookAt(laserStartPos);
+        
     }
 
     private void Update() {
