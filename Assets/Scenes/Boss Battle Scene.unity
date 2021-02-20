@@ -15,9 +15,9 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.36764684, g: 0.2985048, b: 0.49056602, a: 1}
+  m_FogColor: {r: 0.46235222, g: 0.42831078, b: 0.5188679, a: 1}
   m_FogMode: 2
-  m_FogDensity: 0.03
+  m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1.3
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SubtractiveShadowColor: {r: 0.4309808, g: 0.48255438, b: 0.6132076, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0
   m_FlareStrength: 1
@@ -77,7 +77,7 @@ LightmapSettings:
     m_PVRSampling: 1
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 512
-    m_PVRBounces: 0
+    m_PVRBounces: 1
     m_PVREnvironmentSampleCount: 256
     m_PVREnvironmentReferencePointCount: 2048
     m_PVRFilteringMode: 1
@@ -338,7 +338,7 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -348,12 +348,22 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Range
       value: 7.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645009, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -739,17 +749,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -775,6 +785,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -879,7 +894,7 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -889,7 +904,7 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -915,6 +930,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -999,7 +1019,7 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -1024,12 +1044,22 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Range
       value: 7.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645009, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -1153,17 +1183,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -1189,6 +1219,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -1293,17 +1328,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -1329,6 +1364,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -1458,17 +1498,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -1494,6 +1534,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -1672,17 +1717,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -1703,6 +1748,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_Range
+      value: 4.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -1840,17 +1895,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -1876,6 +1931,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -2335,17 +2395,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -2371,6 +2431,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -2475,17 +2540,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -2511,6 +2576,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -2640,7 +2710,7 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -2650,12 +2720,22 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Range
       value: 7.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645009, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -2964,7 +3044,7 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -2974,12 +3054,22 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Range
       value: 7.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645009, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -3969,17 +4059,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -4005,6 +4095,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -4343,17 +4438,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -4379,6 +4474,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -4494,7 +4594,7 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -4519,12 +4619,22 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Range
       value: 7.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645009, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -5016,7 +5126,7 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -5026,12 +5136,22 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Range
       value: 7.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645009, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -5322,7 +5442,7 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -5332,12 +5452,22 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Range
       value: 7.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645009, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -5461,17 +5591,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -5497,6 +5627,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -5601,17 +5736,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -5637,6 +5772,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -6014,17 +6154,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -6050,6 +6190,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -6269,17 +6414,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -6305,6 +6450,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -6538,7 +6688,7 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -6548,12 +6698,22 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Range
       value: 7.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645009, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -6745,17 +6905,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -6781,6 +6941,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -6844,7 +7009,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.54184544, g: 0.52078146, b: 0.7830189, a: 1}
-  m_Intensity: 0.49
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -6883,16 +7048,16 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 2
+  m_BounceIntensity: 0.48
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
-  m_ShadowAngle: 0
+  m_ShadowAngle: 5.5
 --- !u!4 &1247928813
 Transform:
   m_ObjectHideFlags: 0
@@ -6900,13 +7065,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247928811}
-  m_LocalRotation: {x: 0.21986137, y: -0.11431255, z: 0.3068318, w: 0.91893846}
+  m_LocalRotation: {x: 0.865012, y: -0.3032121, z: 0.2468612, w: 0.31444588}
   m_LocalPosition: {x: -23.7, y: 33.7, z: 63.55405}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 28.309002, y: -4.8980002, z: 35.692}
+  m_LocalEulerAnglesHint: {x: 43.924004, y: 160.841, z: 210.847}
 --- !u!4 &1250036846 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8663946102568531336, guid: 23dc501c078481544848eeb7e45b564f,
@@ -7241,7 +7406,7 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -7251,12 +7416,22 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Range
       value: 7.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645009, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -7386,17 +7561,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -7422,6 +7597,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -7552,7 +7732,7 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -7562,12 +7742,22 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Range
       value: 7.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645009, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -7686,7 +7876,7 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -7696,12 +7886,22 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Range
       value: 7.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645009, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -7826,7 +8026,7 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -7836,12 +8036,22 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Range
       value: 7.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645009, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -7965,17 +8175,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -8001,6 +8211,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -8199,7 +8414,7 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -8209,12 +8424,22 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Range
       value: 7.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645009, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -8333,7 +8558,7 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -8343,12 +8568,22 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Range
       value: 7.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645009, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -8511,17 +8746,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -8547,6 +8782,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -8964,17 +9204,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -9000,6 +9240,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -9219,7 +9464,7 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -9229,12 +9474,22 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Range
       value: 7.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645009, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -9448,7 +9703,7 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -9458,12 +9713,22 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Range
       value: 7.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645009, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -9587,17 +9852,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -9623,6 +9888,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -9721,17 +9991,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -9757,6 +10027,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -9929,17 +10204,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -9965,6 +10240,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -10184,17 +10464,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -10220,6 +10500,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -10508,7 +10793,7 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -10518,12 +10803,22 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Range
       value: 7.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645009, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -10684,17 +10979,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -10720,6 +11015,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -10818,17 +11118,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -10854,6 +11154,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -11212,17 +11517,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -11248,6 +11553,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -11510,7 +11820,7 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -11520,12 +11830,22 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Range
       value: 7.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645009, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -11867,17 +12187,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -11903,6 +12223,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -12081,17 +12406,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -12117,6 +12442,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -12466,17 +12796,17 @@ PrefabInstance:
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
         type: 3}
@@ -12502,6 +12832,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197761336925650502, guid: df3a1932f999747419aa909a0cc1642b,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df3a1932f999747419aa909a0cc1642b, type: 3}
@@ -13002,7 +13337,7 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
@@ -13027,12 +13362,22 @@ PrefabInstance:
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_BounceIntensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
       propertyPath: m_Range
       value: 7.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202609334447645008, guid: 23dc501c078481544848eeb7e45b564f,
+        type: 3}
+      propertyPath: m_ShadowRadius
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9202609334447645009, guid: 23dc501c078481544848eeb7e45b564f,
         type: 3}
