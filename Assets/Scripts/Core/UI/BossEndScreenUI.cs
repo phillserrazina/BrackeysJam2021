@@ -12,11 +12,18 @@ public class BossEndScreenUI : MonoBehaviour
 
     public static BossEndScreenUI Instance { get; private set; }
 
+    private bool hasBeenTriggered = false;
+
     private void Awake() {
         Instance = this;
     }
 
     public void Show(string result) {
+        if (!hasBeenTriggered)
+            Time.timeScale = 0f;
+
+        hasBeenTriggered = true;
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
