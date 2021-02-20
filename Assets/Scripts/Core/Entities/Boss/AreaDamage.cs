@@ -13,11 +13,12 @@ public class AreaDamage : MonoBehaviour
 
         if (playerStats != null) {
             playerStats.Damage(damage);
+            playerStats.GetComponentInChildren<Animator>().SetTrigger("Squashed");
 
             var dir = playerStats.transform.position - transform.position;
             dir.y = 0f;
 
-            playerStats.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(400f, 600f), 0f, Random.Range(400f, 600f)), ForceMode.Force);
+            playerStats.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(50f, 100f), 0f, Random.Range(50f, 100f)), ForceMode.Force);
         }
 
         var recruit = other.GetComponent<Recruitable>();
