@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using BrackeysJam.Core.Entities;
 using Lucerna.Utils;
+using Lucerna.Audio;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get; private set; }
 
+    private bool[] playedSound = { false, false };
+
     // EXECUTION FUNCTIONS
     private void Awake() {
         Instance = this;
@@ -26,6 +29,13 @@ public class GameManager : MonoBehaviour
 
     private void Start() {
         CurrentTime = gameTime;
+
+        if (!isBattleScene) {
+            AudioManager.instance.Play("Recruits");
+        }
+        else {
+            AudioManager.instance.Play("Boss");
+        }
     }
 
     private void Update() {
@@ -37,6 +47,16 @@ public class GameManager : MonoBehaviour
         if (isBattleScene) return;
 
         CurrentTime -= Time.deltaTime;
+
+        if (CurrentTime <= 40 && playedSound[0] == false) {
+            AudioManager.instance.Play("Low Time");
+            playedSound[0] = true;
+        }
+
+        if (CurrentTime <= 20 && playedSound[1] == false) {
+            AudioManager.instance.Play("Low Time");
+            playedSound[1] = true;
+        }
 
         if (CurrentTime <= 0 || Input.GetKeyDown(KeyCode.E)) {
             player.SaveRecruits();

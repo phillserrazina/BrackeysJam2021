@@ -9,7 +9,6 @@ public class AreaDamage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         var playerStats = other.GetComponent<PlayerStats>();
-        Debug.Log(other.gameObject.name);
 
         if (playerStats != null) {
             playerStats.Damage(damage);
@@ -24,7 +23,7 @@ public class AreaDamage : MonoBehaviour
         var recruit = other.GetComponent<Recruitable>();
 
         if (recruit != null) {
-            if (Random.value > 0.8f)
+            if (Random.value > 0.95f)
                 recruit.SelfDestroy();
         }
     }

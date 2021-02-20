@@ -16,14 +16,7 @@ namespace Lucerna.Audio
 
 		// EXECUTION FUNCTIONS
 		private void Awake() {
-			if (instance != null && instance != this) {
-				Destroy(gameObject);
-			}
-			if (instance == null) {
-				instance = this;
-				DontDestroyOnLoad(gameObject);
-			}
-
+			instance = this;
 			InitSounds();
 		}
 

@@ -15,4 +15,8 @@ public class BossAnimationHelper : MonoBehaviour
     public void SlamAttack() {
         boss.SlamAttack();
     }
+
+    public void PlayClip(int index) {
+        boss.PlayClip(index, true);
+    }
 }

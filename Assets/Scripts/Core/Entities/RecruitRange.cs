@@ -13,7 +13,7 @@ namespace BrackeysJam.Core.Entities
 
             if (recruitable == null) return;
 
-            recruitManager.Recruit(recruitable);
+            recruitManager.Recruit(recruitable, true);
         }
     }
 }

@@ -2193,6 +2193,7 @@ GameObject:
   - component: {fileID: 191476246}
   - component: {fileID: 191476245}
   - component: {fileID: 191476248}
+  - component: {fileID: 191476249}
   m_Layer: 5
   m_Name: Play Button
   m_TagString: Untagged
@@ -2331,6 +2332,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &191476249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191476243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcaa7013c7252a045b65d9140132d893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &192865238
 GameObject:
   m_ObjectHideFlags: 0
@@ -11051,7 +11064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -14672,6 +14685,7 @@ GameObject:
   - component: {fileID: 1066257211}
   - component: {fileID: 1066257210}
   - component: {fileID: 1066257213}
+  - component: {fileID: 1066257214}
   m_Layer: 5
   m_Name: How to Play Button
   m_TagString: Untagged
@@ -14810,6 +14824,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1066257214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066257208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcaa7013c7252a045b65d9140132d893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1070215306
 GameObject:
   m_ObjectHideFlags: 0
@@ -24331,6 +24357,7 @@ GameObject:
   - component: {fileID: 2066008085}
   - component: {fileID: 2066008084}
   - component: {fileID: 2066008087}
+  - component: {fileID: 2066008088}
   m_Layer: 5
   m_Name: Quit Button
   m_TagString: Untagged
@@ -24469,6 +24496,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2066008088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066008082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcaa7013c7252a045b65d9140132d893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2068290165
 GameObject:
   m_ObjectHideFlags: 0
@@ -26024,6 +26063,75 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &1397164744782190702
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1397164745003349126, guid: ddc4455302c29dd4eb5117cf26335ebb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397164745003349126, guid: ddc4455302c29dd4eb5117cf26335ebb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397164745003349126, guid: ddc4455302c29dd4eb5117cf26335ebb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397164745003349126, guid: ddc4455302c29dd4eb5117cf26335ebb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397164745003349126, guid: ddc4455302c29dd4eb5117cf26335ebb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397164745003349126, guid: ddc4455302c29dd4eb5117cf26335ebb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397164745003349126, guid: ddc4455302c29dd4eb5117cf26335ebb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397164745003349126, guid: ddc4455302c29dd4eb5117cf26335ebb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397164745003349126, guid: ddc4455302c29dd4eb5117cf26335ebb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397164745003349126, guid: ddc4455302c29dd4eb5117cf26335ebb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397164745003349126, guid: ddc4455302c29dd4eb5117cf26335ebb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397164745003349128, guid: ddc4455302c29dd4eb5117cf26335ebb,
+        type: 3}
+      propertyPath: m_Name
+      value: Audio Manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ddc4455302c29dd4eb5117cf26335ebb, type: 3}
 --- !u!4 &1409203671753216810
 Transform:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Lucerna.Audio;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -11,14 +12,25 @@ public class PlayerStats : MonoBehaviour
 
     public float HealthPercentage => currentHealth / maxHealth;
 
+    private float hitCooldown = 0f;
+
     // EXECUTION FUNCTIONS
     private void Start() {
         currentHealth = maxHealth;
     }
 
+    private void Update() {
+        if (hitCooldown > 0f) {
+            hitCooldown -= Time.deltaTime;
+        }
+    }
+
     // METHODS
     public void Damage(float val) {
+        if (hitCooldown > 0f) return;
+
         barAnimator.SetTrigger("Hit");
+        AudioManager.instance.Play("Player Damage", 2);
 
         currentHealth -= val;
 
