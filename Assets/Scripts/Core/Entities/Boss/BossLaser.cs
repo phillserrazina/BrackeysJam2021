@@ -45,7 +45,7 @@ public class BossLaser : MonoBehaviour
 
         if (killTimer > 0f) return;
 
-        killTimer = 0.2f;
+        killTimer = 0.4f;
         var recruit = other.GetComponent<Recruitable>();
 
         if (recruit != null) {

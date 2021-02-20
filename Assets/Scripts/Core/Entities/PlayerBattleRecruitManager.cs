@@ -51,7 +51,7 @@ namespace BrackeysJam.Core.Entities
 
                     spawnedObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
 
-                    player.Recruit(spawnedObject);
+                    player.Recruit(spawnedObject, false);
                     queues[i].Enqueue(spawnedObject);
 
                     RecruitsGroupMovementManager.Instance.Add(spawnedObject);

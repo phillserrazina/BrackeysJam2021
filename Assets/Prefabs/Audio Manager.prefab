@@ -1,0 +1,272 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1397164745003349128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1397164745003349126}
+  - component: {fileID: 1397164745003349129}
+  - component: {fileID: 1397164745003349127}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1397164745003349126
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397164745003349128}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1397164745003349129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397164745003349128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b67a48c83e92b1e4087e2777e02e821c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 90cd0e3bc3630784980f4cc82339bb63, type: 2}
+  mixerGroup: {fileID: 24300002, guid: 90cd0e3bc3630784980f4cc82339bb63, type: 2}
+  sounds:
+  - name: Main Menu
+    clip: {fileID: 8300000, guid: 2333123edfec740469808bca43f4b4e1, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: 24300002, guid: 90cd0e3bc3630784980f4cc82339bb63, type: 2}
+    source: {fileID: 0}
+  - name: Recruits
+    clip: {fileID: 8300000, guid: 81308bfdc0a267c4991c3fbe3d14527a, type: 3}
+    volume: 0.7
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: 24300002, guid: 90cd0e3bc3630784980f4cc82339bb63, type: 2}
+    source: {fileID: 0}
+  - name: Boss
+    clip: {fileID: 8300000, guid: b2805265b1e4a514d99e9ba231fece9f, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: 24300002, guid: 90cd0e3bc3630784980f4cc82339bb63, type: 2}
+    source: {fileID: 0}
+  - name: Button
+    clip: {fileID: 8300000, guid: 65165c320ef0a0e40854318a561b856b, type: 3}
+    volume: 0.8
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 24300002, guid: 90cd0e3bc3630784980f4cc82339bb63, type: 2}
+    source: {fileID: 0}
+  - name: Boss Damage 1
+    clip: {fileID: 8300000, guid: b0f6559febc586d4982e93991181acf0, type: 3}
+    volume: 0.8
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 24300002, guid: 90cd0e3bc3630784980f4cc82339bb63, type: 2}
+    source: {fileID: 0}
+  - name: Boss Damage 2
+    clip: {fileID: 8300000, guid: 98becb2a5251e024eb10b43fb0d89e48, type: 3}
+    volume: 0.8
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 24300002, guid: 90cd0e3bc3630784980f4cc82339bb63, type: 2}
+    source: {fileID: 0}
+  - name: Player Damage 1
+    clip: {fileID: 8300000, guid: 46f2c37567f01854e809813b1044ec89, type: 3}
+    volume: 0.8
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 24300002, guid: 90cd0e3bc3630784980f4cc82339bb63, type: 2}
+    source: {fileID: 0}
+  - name: Player Damage 2
+    clip: {fileID: 8300000, guid: 7b06eff430838be4faa4f57c1898f2d7, type: 3}
+    volume: 0.8
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 24300002, guid: 90cd0e3bc3630784980f4cc82339bb63, type: 2}
+    source: {fileID: 0}
+  - name: Throw 1
+    clip: {fileID: 8300000, guid: cb14dc84c7a407c4896bf5b7bea9e0c1, type: 3}
+    volume: 0.8
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 24300002, guid: 90cd0e3bc3630784980f4cc82339bb63, type: 2}
+    source: {fileID: 0}
+  - name: Throw 2
+    clip: {fileID: 8300000, guid: fbc31e31dfa2d9443894bf33e63ff5ce, type: 3}
+    volume: 0.8
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 24300002, guid: 90cd0e3bc3630784980f4cc82339bb63, type: 2}
+    source: {fileID: 0}
+  - name: Low Time
+    clip: {fileID: 8300000, guid: 0bd62ffb4f2143147b9ac3c0b67eeead, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 24300002, guid: 90cd0e3bc3630784980f4cc82339bb63, type: 2}
+    source: {fileID: 0}
+  - name: OnCatch
+    clip: {fileID: 8300000, guid: d8a26af6b7add00418ebaa5292b0b565, type: 3}
+    volume: 0.8
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 24300002, guid: 90cd0e3bc3630784980f4cc82339bb63, type: 2}
+    source: {fileID: 0}
+  - name: OnThrow
+    clip: {fileID: 8300000, guid: 3009f3a57a42e7d45b6ece05c08f728d, type: 3}
+    volume: 0.8
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 24300002, guid: 90cd0e3bc3630784980f4cc82339bb63, type: 2}
+    source: {fileID: 0}
+  - name: Step
+    clip: {fileID: 8300000, guid: 55ca5d0064b93a14490bef5f2482e5c6, type: 3}
+    volume: 0.8
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 24300002, guid: 90cd0e3bc3630784980f4cc82339bb63, type: 2}
+    source: {fileID: 0}
+--- !u!82 &1397164745003349127
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397164745003349128}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 90cd0e3bc3630784980f4cc82339bb63,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

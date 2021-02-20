@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Lucerna.Audio;
 
 namespace BrackeysJam.Core.Entities
 {
@@ -46,9 +47,13 @@ namespace BrackeysJam.Core.Entities
 
         private Vector3 currentDir;
 
+        [SerializeField] private AudioClip[] clips = null;
+        private new AudioSource audio;
+
         // EXECUTION FUNCTIONS
         private void Awake() {
             rb = GetComponent<Rigidbody>();
+            audio = GetComponent<AudioSource>();
         }
 
         private void Update() {
@@ -125,16 +130,21 @@ namespace BrackeysJam.Core.Entities
                 }
 
                 currentTarget = null;
-                leader.Recruit(this);
+                leader.Recruit(this, false);
                 PlayerBattleRecruitManager.Instance.Requeue(this);
             }
         }
 
         // METHODS
-        public void TurnToRecruit(PlayerRecruitManager leader) {
+        public void TurnToRecruit(PlayerRecruitManager leader, bool playSound=true) {
             this.leader = leader;
 
             animator.SetTrigger("Catch");
+
+            if (playSound) {
+                audio.clip = clips[0];
+                audio.Play();
+            }
 
             var catchFX = Instantiate(onCatchFX, transform.position, onCatchFX.transform.rotation);
             Destroy(catchFX, 2f);
@@ -142,6 +152,11 @@ namespace BrackeysJam.Core.Entities
 
         public void Use(Transform target) 
         {
+            AudioManager.instance.Play("OnThrow");
+
+            audio.clip = clips[Random.value < 0.5f ? 2 : 3];
+            audio.Play();
+
             roaming = false;
 
             if (recruitType == RecruitableTypes.Basic) 
@@ -230,6 +245,9 @@ namespace BrackeysJam.Core.Entities
         public void SelfDestroy(float timer=0) {
             var obj = Instantiate(deathFX, transform.position, Quaternion.identity);
             Destroy(obj, 3f);
+
+            audio.clip = clips[4];
+            audio.Play();
 
             Destroy(gameObject, timer);
         }

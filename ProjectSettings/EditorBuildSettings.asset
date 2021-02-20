@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/Main Menu.unity
     guid: 68bfab6455bc522449827090caaac851
   - enabled: 1
     path: Assets/Scenes/Recruitment Scene.unity

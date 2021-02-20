@@ -54,9 +54,22 @@ namespace BrackeysJam.Core.Entities
             }
         }
 
+        private AudioSource source;
+        /*
+         * 0. Evolve
+         * 1. Take Damage 1
+         * 2. Take Damage 2
+         * 3. OnJump
+         * 4. OnLand
+         * 5. Projectile
+         * 6. Laser 
+         */
+        [SerializeField] private AudioClip[] clips = null;
+
         // EXECUTION FUNCTIONS
         private void Awake() {
             Player = FindObjectOfType<PlayerRecruitManager>();
+            source = GetComponent<AudioSource>();
         }
 
         private void Start() {
@@ -74,6 +87,7 @@ namespace BrackeysJam.Core.Entities
 
             if (BossPhase != newPhase) {
                 animator.SetTrigger("Evolve");
+                PlayClip(0, true);
 
                 BossPhase = newPhase;
 
@@ -116,7 +130,9 @@ namespace BrackeysJam.Core.Entities
 
             barAnimator.SetTrigger("Hit");
 
-            float damage = type == RecruitableTypes.Basic ? 2f : 6f;
+            PlayClip(Random.value < 0.5f ? 1 : 2);
+
+            float damage = type == RecruitableTypes.Basic ? 3f : 7f;
 
             if (currentArmor > currentHealth) {
 
@@ -198,6 +214,8 @@ namespace BrackeysJam.Core.Entities
             slamingPlayer = false;
             slamAnimator = 0f;
 
+            PlayClip(4, true);
+
             var fxPos = transform.position;
             fxPos.y = -1.8f;
 
@@ -209,6 +227,14 @@ namespace BrackeysJam.Core.Entities
             var attack = attacks.Where(a => a.Name == attackName).ToArray()[0];
 
             animator.SetInteger("Attack", attack.AnimationIndex);
+        }
+
+        public void PlayClip(int index, bool priority=false) {
+            if (priority) source.Stop();
+            if (source.isPlaying) return;
+
+            source.clip = clips[index];
+            source.Play();
         }
     }
 }

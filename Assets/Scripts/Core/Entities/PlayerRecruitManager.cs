@@ -27,11 +27,11 @@ namespace BrackeysJam.Core.Entities
         }
 
         // METHODS
-        public void Recruit(Recruitable recruitable) {
+        public void Recruit(Recruitable recruitable, bool playSound) {
             if (recruits.Contains(recruitable)) return;
 
             recruits.Add(recruitable);
-            recruitable.TurnToRecruit(this);
+            recruitable.TurnToRecruit(this, playSound);
 
             RecruitsGroupMovementManager.Instance.Add(recruitable);
         }
