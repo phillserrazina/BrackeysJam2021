@@ -112,12 +112,6 @@ namespace BrackeysJam.Core.Entities
             }
         }
 
-        private void OnTriggerEnter(Collider other) {
-            if (other.CompareTag("Ground")) {
-                stopSlamming();
-            }
-        }
-
         // METHODS
         public void Damage(RecruitableTypes type) {
             if (evolving) return;

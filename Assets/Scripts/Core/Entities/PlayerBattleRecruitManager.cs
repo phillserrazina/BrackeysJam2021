@@ -40,7 +40,6 @@ namespace BrackeysJam.Core.Entities
             for (int i = 0; i < recruitArrays.Length; i++) 
             {
                 int amountToSpawn = PlayerPrefs.GetInt($"{recruitArrays[i].ToString()}");
-                Debug.Log("Should spawn " + amountToSpawn + " " + recruitArrays[i].ToString());
             
                 var toSpawn = recruitablePrefabs.Where(r => r.Type == recruitArrays[i]).ToArray()[0];
                 queues.Add(new Queue<Recruitable>());
