@@ -11,8 +11,7 @@ namespace BrackeysJam.Core.UI
     public class RecruitsUI : MonoBehaviour
     {
         // VARIABLES
-        [SerializeField] private Text recruitsTitle = null;
-        [SerializeField] private Text recruitsText = null;
+        [SerializeField] private Text[] recruitTexts = null;
 
         private PlayerRecruitManager player;
 
@@ -22,16 +21,11 @@ namespace BrackeysJam.Core.UI
         }
 
         private void Update() {
-            recruitsTitle.text = $"Recruits (x{player.NumberOfRecruits})";
-
-            string recruitsString = "";
-
-            foreach (var type in player.RecruitTypes) {
-                var recruitsOfType = player.NumberOfRecruitsOfType(type);
-                recruitsString += $"{type.ToString()} x{recruitsOfType}\n";   
+            var arr = player.RecruitTypes.ToArray();
+            for (int i = 0; i < arr.Length; i++) {
+                var recruitsOfType = player.NumberOfRecruitsOfType(arr[i]);
+                recruitTexts[i].text = $"{recruitsOfType}\n";   
             }
-
-            recruitsText.text = recruitsString;
         }
     }
 }

@@ -5,6 +5,8 @@ namespace Lucerna.Movement.ThirdPerson
     public class CameraMovement : MonoBehaviour
     {
         // VARIABLES
+        [SerializeField] private bool hideMouse = true;
+
         [Header("References")]
         [SerializeField] private Transform playerTransform = null;
         [SerializeField] private Vector3 offset = Vector3.zero;
@@ -20,6 +22,13 @@ namespace Lucerna.Movement.ThirdPerson
         private Camera cam;
 
         // EXECUTION FUNCTIONS
+        private void Awake() {
+            if (hideMouse) {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+        }
+
         private void Start() => cam = Camera.main;
 
         private void FixedUpdate() {

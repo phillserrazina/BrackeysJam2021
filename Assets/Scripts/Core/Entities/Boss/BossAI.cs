@@ -8,8 +8,6 @@ namespace BrackeysJam.Core.Entities
     public class BossAI : MonoBehaviour
     {
         // VARIABLES
-        [SerializeField] private BossProjectile projectile = null;
-
         [SerializeField] private float maxHealth = 100f;
         private float currentHealth = 0f;
         public float HealthPercentage => currentHealth / maxHealth;
@@ -176,7 +174,7 @@ namespace BrackeysJam.Core.Entities
                 default:
                     Debug.LogError("BossAI::Attack() --- Invalid State.");
                     break;
-            }                
+            }            
         }
 
         private int getCurrentPhase
@@ -201,7 +199,7 @@ namespace BrackeysJam.Core.Entities
             slamAnimator = 0f;
 
             var fxPos = transform.position;
-            fxPos.y = 0.1f;
+            fxPos.y = -1.8f;
 
             var ps = Instantiate(onSlamFX, fxPos, onSlamFX.transform.rotation);
             Destroy(ps, 1f);

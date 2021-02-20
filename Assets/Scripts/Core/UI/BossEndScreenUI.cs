@@ -17,6 +17,9 @@ public class BossEndScreenUI : MonoBehaviour
     }
 
     public void Show(string result) {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         playerHudObject.SetActive(false);
  
         resultText.text = result;
