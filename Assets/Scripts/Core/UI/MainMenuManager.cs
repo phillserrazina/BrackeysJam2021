@@ -13,4 +13,8 @@ public class MainMenuManager : MonoBehaviour
     private void Start() {
         AudioManager.instance.Play("Main Menu");
     }
+
+    public void Quit() {
+        Application.Quit();
+    }
 }
